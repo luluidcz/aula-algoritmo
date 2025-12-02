@@ -1,8 +1,0 @@
-let listaDeNomes = ["luan", "maria", "laura"]
-
-function pushArray(valor, array=[]){
-    array[array.length]=valor
-}
-
-pushArray("maria", listaDeNomes)
-console.log(listaDeNomes)
