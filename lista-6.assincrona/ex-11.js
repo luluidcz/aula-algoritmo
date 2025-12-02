@@ -1,35 +1,23 @@
 
-function calcularFatorial(numero) {
+function gerarFibonacci(N) {
+    if (N <= 0) {
+        return [];
+    }
+    if (N === 1) {
+        return [1];
+    }
+
     
-    if (numero < 0 || !Number.isInteger(numero)) {
-        return "Erro: O fatorial é definido apenas para números inteiros não negativos.";
+    const sequencia = [1, 1];
+
+   
+    for (let i = 2; i < N; i++) {
+       
+        const proximoTermo = sequencia[i - 1] + sequencia[i - 2];
+        sequencia.push(proximoTermo);
     }
 
    
-    if (numero === 0 || numero === 1) {
-        return 1;
-    }
-
-    let resultado = 1;
-
- 
-    for (let i = numero; i >= 1; i--) {
-        resultado *= i;
-    }
-
-    return resultado;
+    return sequencia.slice(0, N);
 }
 
-
-
-const numeroDoUsuario1 = 5;
-const fatorial1 = calcularFatorial(numeroDoUsuario1);
-console.log(`O fatorial de ${numeroDoUsuario1}! é: ${fatorial1}`);
-
-const numeroDoUsuario2 = 10;
-const fatorial2 = calcularFatorial(numeroDoUsuario2);
-console.log(`O fatorial de ${numeroDoUsuario2}! é: ${fatorial2}`);
-
-const numeroInvalido = -2;
-const fatorialInvalido = calcularFatorial(numeroInvalido);
-console.log(`Tentativa com número inválido (${numeroInvalido}): ${fatorialInvalido}`);
